@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<html data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Trading Platform</title>
+  <!-- Include Tailwind CSS via CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="styles/style.css" rel="stylesheet">
+</head>
+<body class="font-sans bg-gray-200 font-custom">
+  
+  <nav class="bg-gray-900 bg-opacity-80 text-white py-2 flex justify-between items-center">
+    <div>
+        <a href="#" class="px-7 py-3 font-extrabold text-xl">Swinbull</a>
+        <a href="#" class="px-4 py-2">Home</a>
+        <a href="#" class="px-4 py-2">About Us</a>
+        <a href="#" class="px-4 py-2">Product</a>
+    </div>
+    <div class="relative flex items-center">
+      <input type="text" placeholder="Search" class="w-96 bg-gray-800 text-white rounded-lg pl-8 pr-10 py-2 focus:outline-none focus:ring focus:border-blue-300">
+      <svg class="absolute left-1 top-1/2 transform -translate-y-1/2 h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <path d="M456.533333 200.533333a256 256 0 0 1 202.24 413.013334l148.053334 148.053333a32 32 0 0 1-41.642667 48.341333l-3.584-3.114666-148.053333-148.053334A256 256 0 1 1 456.533333 200.533333z m0 64a192 192 0 1 0 0 384 192 192 0 0 0 0-384z" fill="#000000" />
+      </svg>
+    </div>
+    <div class="flex items-center">
+      <div>
+      <a href="#" class="px-2 py-1">History</a>
+      <object data="/SVG/history-15.svg"><a href=""></a></object>
+    </div>
+      <div>
+      <a href="#" class="px-2 py-1">Orders</a>
+      <object data="/SVG/shopping-cart-empty-2.svg"><a href=""></a></object>
+    </div>
+    </div>
+  </nav>
+
+  <div class="flex items-center justify-center h-screen relative">
+    <img src="images/picture.jpg" alt="some dude" class="object-cover w-full h-full opacity-75">
+    <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
+      <p class="font-extrabold text-6xl italic">
+        Your Life Change Now, <br>
+        Start Trading with 0 Brokerage Fees
+      </p>
+      <div class="mt-6">
+        <div class="bg-blue-500 px-20 py-3 rounded-full flex items-center space-x-2">
+          <p class="font-extrabold text-white">Get Started</p>
+          <object data="SVG/arrow_right.svg"></object>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container mx-auto px-4 py-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-white border rounded-lg p-4 shadow-md">
+        <h3 class="mb-2 text-xl font-semibold">Apple Inc.</h3>
+        <p class="text-gray-600">Price: $150.00</p>
+        <button class="btn btn-buy mt-2 bg-green-500 text-white rounded px-2 py-1">Buy</button>
+        <button class="btn btn-sell mt-2 bg-red-500 text-white rounded px-2 py-1">Sell</button>
+      </div>
+      <div class="bg-white border rounded-lg p-4 shadow-md">
+        <h3 class="mb-2 text-xl font-semibold">Amazon.com Inc.</h3>
+        <p class="text-gray-600">Price: $3000.00</p>
+        <button class="btn btn-buy mt-2 bg-green-500 text-white rounded px-2 py-1">Buy</button>
+        <button class="btn btn-sell mt-2 bg-red-500 text-white rounded px-2 py-1">Sell</button>
+      </div>
+      <div class="bg-white border rounded-lg p-4 shadow-md">
+        <h3 class="mb-2 text-xl font-semibold">Google Alphabet Inc.</h3>
+        <p class="text-gray-600">Price: $2500.00</p>
+        <button class="btn btn-buy mt-2 bg-green-500 text-white rounded px-2 py-1">Buy</button>
+        <button class="btn btn-sell mt-2 bg-red-500 text-white rounded px-2 py-1">Sell</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+
+</html>
