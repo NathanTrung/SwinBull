@@ -1,0 +1,50 @@
+/* navbar.css */
+
+/* Style the entire navigation bar */
+.navbar-left {
+    align-items: center; /* Vertically align links to the center */
+    display: flex; /* Make the navbar items flex to align horizontally */
+    gap: 20px; /* Add some space between links */
+}
+
+nav {
+    padding: 10px 0; /* Add some padding to top and bottom */
+    display: flex; /* Make the navbar items flex to align horizontally */
+    justify-content: space-between; /* Spread items evenly horizontally */
+    align-items: center; /* Vertically align items to center */
+  }
+  
+/* Style the logo */
+.navbar-left img {
+    height: 100px; /* Set the logo height */
+    margin-left: 20px; /* Add some margin to the left */
+    outline: none; /* Remove outline */
+    align-items: center; /* Vertically align links to the center */
+    gap: 20px; /* Add some space between links */
+}
+
+.navbar-left li {
+    align-items: center; /* Vertically align links to the center */
+    display: inline; /* Make the navbar items flex to align horizontally */
+    font-size: 18px; /* Set the font size */
+    padding: 10px 25px; /* Add padding to create a box around the text */
+    border-radius: 5px; /* Add rounded corners */
+    font-weight: 700;
+}
+
+.navbar-left a {
+    text-decoration: none; /* Remove underlines from links */
+    color: #333; /* Text color for links */
+    outline: none; /* Remove outline */
+}
+
+.navbar-left a:hover {
+    color: #f00606; /* Change color on hover */
+    transition: all .2s ease;
+    -webkit-transition: all .2s ease;
+}
+  
+  
+  
+  
+  
