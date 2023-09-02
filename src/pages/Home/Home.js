@@ -5,6 +5,14 @@ class Home extends React.Component {
     render() { 
         return ( 
     <div class="v1_2">
+        {/* navigation bar */}
+                <div class="nav">
+                    <div class="nav-item-image"></div>
+                    <div class="nav-item1"><span class="nav-text1">HOME</span></div>
+                    <div className="nav-item2"><span class="nav-text2">MARKET</span></div>
+                    <div class="nav-item3"><span class="nav-text3">ABOUT</span></div>
+                </div>
+
         <div class="v1_3">
             <div class="v1_4">
                 <div class="v1_5">
@@ -520,3 +528,4 @@ class Home extends React.Component {
     
 }
 export default Home;
+

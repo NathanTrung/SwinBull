@@ -5,6 +5,13 @@ class Market extends React.Component {
     render() { 
         return (
             <div>
+                {/* navigation bar */}
+                <div class="nav">
+                    <div class="nav-item-image"></div>
+                    <div class="nav-item1"><span class="nav-text1">HOME</span></div>
+                    <div className="nav-item2"><span class="nav-text2">MARKET</span></div>
+                    <div class="nav-item3"><span class="nav-text3">ABOUT</span></div>
+                </div>
     <div class="v9_1962">
         <div class="v9_1963">
             <div class="v9_1964"></div>
@@ -1501,38 +1508,6 @@ class Market extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div class="v9_3461">
-                        <div class="v9_3462">
-                            <div class="v9_3463"><span class="v9_3464">MARKETS</span>
-                                <div class="v9_3465"></div>
-                            </div>
-                        </div>
-                        <div class="v9_3466"><span class="v9_3467">PRICING</span></div>
-                        <div class="v9_3468">
-                            <div class="v9_3469">
-                                <div class="v9_3472"><span class="v9_3473">FEATURE</span></div>
-                                <div class="v9_3470">
-                                    <div class="v9_3471"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="v9_3474"><span class="v9_3475">LEARN</span></div>
-                        <div class="v9_3476"><span class="v9_3477">DOWNLOAD</span></div>
-                        <div class="v9_3478"><span class="v9_3479">ABOUT</span></div>
-                        <div class="v9_3480"><span class="v9_3481">HELP</span></div>
-                        <div class="v9_3482">
-                            <div class="v9_3483">
-                                <div class="v9_3486"><span class="v9_3487">REWARD</span></div>
-                                <div class="v9_3484">
-                                    <div class="v9_3485"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="v9_3488">
-                    <div class="v9_3489"><span class="v9_3490">SIGN UP</span></div>
-                    <div class="v9_3491"><span class="v9_3492">LOG IN</span></div>
                 </div>
             </div>
         </div>
