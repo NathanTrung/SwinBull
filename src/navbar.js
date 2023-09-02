@@ -13,13 +13,13 @@ const NavBar = () => {
             <Link to="/market">Market</Link>
           </li>
           <li>
-            <Link to="/transaction-history">Transaction History</Link>
+            <Link to="/transaction">Transaction History</Link>
           </li>
           <li>
-            <Link to="*">Learn Crypto</Link>
+            <Link to="/learn">Learn Crypto</Link>
           </li>
           <li>
-            <Link to="*">About</Link>
+            <Link to="/about">About Us</Link>
           </li>
         </ul>
       </div>

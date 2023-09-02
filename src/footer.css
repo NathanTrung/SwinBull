@@ -1,0 +1,21 @@
+/* footer.css */
+.footer-background {
+    background-color: #f00606; /* Set the background color of the footer to red */
+    color: #fff; /* Set the text color to white */
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.footer-column {
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+    background-color: #f00606; /* Set the background color of the column to red */
+}
+
+.footer .column-text {
+    font-size: 20px;
+    margin-bottom: 10px;
+    background-color: #f00606; /* Set the text background color to red */
+}

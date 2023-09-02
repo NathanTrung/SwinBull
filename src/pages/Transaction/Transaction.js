@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "axios"; // API request for live data
 import "./styles/styles.css";
-import cards from "../../images/card_img.png"
+
 const Asset = ({
   index,
   name,
@@ -110,103 +110,12 @@ const Asset = ({
   );
 };
 
-const BuyModal = ({ isOpen, onClose, coinName }) => {
-  return isOpen ? (
-    <div className="modal-overlay">
-      <div className="modal">
-        <h2>Buying {coinName}</h2>
-        <form className="checkOutForm" action="">
-
-        <div className="row">
-
-            <div className="col">
-
-                <h3 className="title">billing address</h3>
-                <div className="inputBox">
-                    <span>Amount:</span>
-                    <input type="text" placeholder="Enter Amount" name="amount"/>
-                </div>
-                <div className="inputBox">
-                    <span>Wallet Address:</span>
-                    <input type="text" placeholder="Enter Wallet Address" name="wallet"/>
-                </div>
-                <div className="inputBox">
-                    <span>Full name:</span>
-                    <input type="text" placeholder="eg: John Doe"/>
-                </div>
-                <div className="inputBox">
-                    <span>Email:</span>
-                    <input type="email" placeholder="example@example.com"/>
-                </div>
-                <div className="inputBox">
-                    <span>Address:</span>
-                    <input type="text" placeholder="20 John St"/>
-                </div>
-                <div className="inputBox">
-                    <span>City:</span>
-                    <input type="text" placeholder="Melbourne"/>
-                </div>
-
-                <div className="flex">
-                    <div className="inputBox">
-                        <span>State:</span>
-                        <input type="text" placeholder="VIC"/>
-                    </div>
-                    <div className="inputBox">
-                        <span>Zip Code:</span>
-                        <input type="text" placeholder="3122"/>
-                    </div>
-                </div>
-            </div>
-            <div className="col">
-
-                <h3 className="title">payment</h3>
-                <div className="inputBox">
-                    <span>Cards Accepted:</span>
-                    <img src={cards} alt="cards"/>
-                </div>
-                <div className="inputBox">
-                    <span>Name on Card:</span>
-                    <input type="text" placeholder="Mr. John Doe"/>
-                </div>
-                <div className="inputBox">
-                    <span>Credit Card Number:</span>
-                    <input type="text" placeholder="1111-2222-3333-4444"/>
-                </div>
-
-                <div className="flex">
-                    <div className="inputBox">
-                        <span>EXP:</span>
-                        <input type="text" placeholder="2026"/>
-                    </div>
-                    <div className="inputBox">
-                        <span>CVV:</span>
-                        <input type="text" placeholder="123" />
-                    </div>
-                </div>
-
-            </div>
-    
-        </div>
-
-        <input type="submit" value="PROCEED TO CHECKOUT" className="submit-btn"/>
-
-    </form>
-    <button onClick={onClose}></button>
-    </div>
-        
-      </div>
-  ) : null;
-};
-
 function App() {
   const [assets, setAssets] = useState([]);
   const [exampleText, setExampleText] = useState("Bitcoin");
   const [search, setSearch] = useState("");
-  const [sortOrder, setSortOrder] = useState("desc");
-  const [sortBy, setSortBy] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedCoin, setSelectedCoin] = useState("");
+  const [sortOrder, setSortOrder] = useState("desc"); // Default sorting order is descending
+  const [sortBy, setSortBy] = useState(""); // Default sorting column is empty
 
   useEffect(() => {
     axios
@@ -286,13 +195,10 @@ function App() {
     asset.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  // Handle the buy action here
   const handleBuyClick = (coinName) => {
-    setIsModalOpen(true);
-    setSelectedCoin(coinName);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
+    // Replace this with your buy logic
+    alert(`Buying ${coinName}`);
   };
 
   return (
@@ -313,6 +219,7 @@ function App() {
         <h1>Top Cryptocurrency Price by Market Cap</h1>
         <p>Satoshi Nakamoto published the Bitcoin Whitepaper on 31 Oct 2008. The first block was mined shortly after on 3 Jan 2009.</p>
       </div>
+      {/* Header row with sorting button */}
       <div className="asset-header">
         <Asset
           isHeader
@@ -328,6 +235,7 @@ function App() {
           canBuy={false}
         />
       </div>
+
       {filteredAssets.map((asset, index) => {
         return (
           <Asset
@@ -343,12 +251,11 @@ function App() {
             handleSort={handleSort}
             sortOrder={sortOrder}
             sortBy={sortBy}
-            canBuy={true}
-            onBuyClick={(coinName) => handleBuyClick(coinName)}
+            canBuy={true} // Set canBuy to true for the coins that can be bought
+            onBuyClick={(coinName) => handleBuyClick(coinName)} // Pass the buy action handler
           />
         );
       })}
-      <BuyModal isOpen={isModalOpen} onClose={closeModal} coinName={selectedCoin} />
     </div>
   );
 }
