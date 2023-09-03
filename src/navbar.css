@@ -50,3 +50,48 @@ nav {
     transition: all 0.2s ease;
     -webkit-transition: all 0.2s ease;
 }
+
+
+.navbar-right {
+    align-items: center; /* Vertically align links to the center */
+    display: flex; /* Make the navbar items flex to align horizontally */
+    gap: 20px; /* Add some space between links */
+    position: fixed; /* Stick the navbar to the top */
+    top: 0; /* Place it at the top of the viewport */
+    right: 0; /* Align it to the right */
+    background-color: #f5f5f5; /* Set background color */
+    z-index: 1000; /* Set a higher z-index to ensure it's above other content */
+}
+
+.navbar-right {
+    height: 100px; /* Set the logo height */
+    margin-left: 20px; /* Add some margin to the left */
+    outline: none; /* Remove outline */
+    align-items: center; /* Vertically align links to the center */
+    gap: 20px; /* Add some space between links */
+}
+
+.navbar-right li {
+    align-items: center; /* Vertically align links to the center */
+    display: inline; /* Make the navbar items flex to align horizontally */
+    font-size: 18px; /* Set the font size */
+    padding: 10px 25px; /* Add padding to create a box around the text */
+    border-radius: 5px; /* Add rounded corners */
+    font-weight: 700;
+}
+.navbar-right a {
+    text-decoration: none; /* Remove underlines from links */
+    color: #333; /* Text color for links */
+    outline: none; /* Remove outline */
+}
+
+.navbar-right a:hover {
+    color: #f00606; /* Change color on hover */
+    transition: all 0.2s ease;
+    -webkit-transition: all 0.2s ease;
+}
+
+.signup-container {
+    border-radius: 20px;
+    border: 1px solid black;
+  }

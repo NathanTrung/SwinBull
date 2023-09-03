@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import axios from "axios"; // API request for live data
 import "./styles/styles.css";
-import History from "./history.json"
-import cards from "../../images/card_img.png";
 
 const Asset = ({
   index,
   name,
   price,
-  symbol, // Added symbol prop
+  symbol,
+  marketcap,
   volume,
   image,
   priceChange,
@@ -16,9 +15,16 @@ const Asset = ({
   handleSort,
   sortOrder,
   sortBy,
-  currentTime, // Added currentTime prop
+  canBuy,
+  onBuyClick,
 }) => {
   const isAscending = sortOrder === "asc";
+
+  const handleBuyClick = () => {
+    if (canBuy) {
+      onBuyClick(name); // Simulate a buy action with the coin's name
+    }
+  };
 
   const showArrow = (column) => {
     return sortBy === column && (sortOrder === "asc" || sortOrder === "desc");
@@ -42,9 +48,7 @@ const Asset = ({
             <img src={image} alt="crypto" />
           )}
           <h2 className="asset-name">{isHeader ? "" : name}</h2>
-          <p className={`asset-symbol${isHeader ? " asset-header-bold" : ""}`}>
-            {isHeader ? "Symbol" : symbol}
-          </p>
+          <p className="asset-symbol">{symbol}</p>
         </div>
         <div className="asset-data">
           <p className={`asset-price${isHeader ? " asset-header-bold" : ""}`}>
@@ -58,8 +62,9 @@ const Asset = ({
             )}
           </p>
           <p
-            className={`asset-percent${isHeader ? " asset-header-bold" : priceChange < 0 ? " red" : " green"
-              }`}
+            className={`asset-percent${
+              isHeader ? " asset-header-bold" : priceChange < 0 ? " red" : " green"
+            }`}
           >
             {isHeader ? (
               <button onClick={() => handleSort("priceChange")} className="sort-button">
@@ -80,16 +85,25 @@ const Asset = ({
               `$${volume.toLocaleString()}`
             )}
           </p>
-          <p className={`asset-time${isHeader ? " asset-header-bold" : ""}`}>
+          <p
+            className={`asset-marketcap${
+              isHeader ? " asset-header-bold" : ""
+            }`}
+          >
             {isHeader ? (
-              <button onClick={() => handleSort("time")} className="sort-button">
-                Time{" "}
-                {showArrow("time") && (isAscending ? "▲" : "▼")}
+              <button onClick={() => handleSort("market_cap")} className="sort-button">
+                Market Cap{" "}
+                {showArrow("market_cap") && (isAscending ? "▲" : "▼")}
               </button>
             ) : (
-              currentTime.toLocaleString()
+              `$${marketcap.toLocaleString()}`
             )}
           </p>
+          <div className={`asset-buy${isHeader ? " asset-header-bold" : ""}`}>
+            <p className={`asset-buy-header${isHeader ? " asset-header-bold" : ""}`}>
+              {isHeader ? "Buy" : canBuy ? <button className="buy-button green" onClick={handleBuyClick}>Buy</button> : ""}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -98,10 +112,10 @@ const Asset = ({
 
 function App() {
   const [assets, setAssets] = useState([]);
+  const [exampleText, setExampleText] = useState("Bitcoin");
   const [search, setSearch] = useState("");
-  const [sortOrder, setSortOrder] = useState("desc");
-  const [sortBy, setSortBy] = useState("");
-  const [currentTime, setCurrentTime] = useState(new Date()); // Initialize with the current date and time
+  const [sortOrder, setSortOrder] = useState("desc"); // Default sorting order is descending
+  const [sortBy, setSortBy] = useState(""); // Default sorting column is empty
 
   useEffect(() => {
     axios
@@ -115,13 +129,26 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
-  // Update the current time at regular intervals
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
+  const cryptoCurrencies = [
+    "Bitcoin",
+    "Ethereum",
+    "Tether",
+    "BNB",
+    "XRP",
+    "USD Coin",
+    "Lido Staked Ether",
+    "Cardano",
+    "Dogecoin",
+    "Solana",
+  ];
 
-    return () => clearInterval(intervalId);
+  const getRandomCrypto = () => {
+    const randomIndex = Math.floor(Math.random() * cryptoCurrencies.length);
+    return cryptoCurrencies[randomIndex];
+  };
+
+  useEffect(() => {
+    setExampleText(getRandomCrypto());
   }, []);
 
   const handleChange = (e) => {
@@ -139,8 +166,7 @@ function App() {
         const priceA = a.current_price;
         const priceB = b.current_price;
         return newSortOrder === "asc" ? priceA - priceB : priceB - priceA;
-      }
-      else if (column === "priceChange") {
+      } else if (column === "priceChange") {
         const priceChangeA = a.price_change_percentage_24h;
         const priceChangeB = b.price_change_percentage_24h;
         return newSortOrder === "asc"
@@ -150,13 +176,14 @@ function App() {
         const volumeA = a.total_volume;
         const volumeB = b.total_volume;
         return newSortOrder === "asc" ? volumeA - volumeB : volumeB - volumeA;
+      } else if (column === "market_cap") {
+        const marketCapA = a.market_cap;
+        const marketCapB = b.market_cap;
+        return newSortOrder === "asc" ? marketCapA - marketCapB : marketCapB - marketCapA;
       } else if (column === "name") {
         const nameA = a.name.toLowerCase();
         const nameB = b.name.toLowerCase();
         return newSortOrder === "asc" ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
-      } else if (column === "time") {
-        // Sort by date and time
-        return newSortOrder === "asc" ? a.date - b.date : b.date - a.date;
       }
       return 0;
     });
@@ -168,19 +195,31 @@ function App() {
     asset.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  // Handle the buy action here
+  const handleBuyClick = (coinName) => {
+    // Replace this with your buy logic
+    alert(`Buying ${coinName}`);
+  };
+
   return (
     <div className="asset-app">
       <div className="asset-search">
-        <h1 className="asset-text">Search History:</h1>
+        <h1 className="asset-text">Explore Assets:</h1>
         <form>
           <input
             className="asset-input"
             type="text"
             onChange={handleChange}
-            placeholder="Enter a cryptocurrency name"
+            placeholder={`Example: ${exampleText}`}
           />
         </form>
       </div>
+      <hr className="separator" />
+      <div className="asset-top-header">
+        <h1>Top Cryptocurrency Price by Market Cap</h1>
+        <p>Satoshi Nakamoto published the Bitcoin Whitepaper on 31 Oct 2008. The first block was mined shortly after on 3 Jan 2009.</p>
+      </div>
+      {/* Header row with sorting button */}
       <div className="asset-header">
         <Asset
           isHeader
@@ -190,11 +229,13 @@ function App() {
           handleSort={handleSort}
           priceChange="24h"
           volume="Volume"
-          currentTime="Time" // Added currentTime prop
+          marketcap="Market Cap"
           sortOrder={sortOrder}
           sortBy={sortBy}
+          canBuy={false}
         />
       </div>
+
       {filteredAssets.map((asset, index) => {
         return (
           <Asset
@@ -204,12 +245,14 @@ function App() {
             price={asset.current_price}
             symbol={asset.symbol}
             volume={asset.total_volume}
+            marketcap={asset.market_cap}
             image={asset.image}
             priceChange={asset.price_change_percentage_24h}
             handleSort={handleSort}
             sortOrder={sortOrder}
             sortBy={sortBy}
-            currentTime={new Date()} // Pass the current date and time to the Asset component
+            canBuy={true} // Set canBuy to true for the coins that can be bought
+            onBuyClick={(coinName) => handleBuyClick(coinName)} // Pass the buy action handler
           />
         );
       })}

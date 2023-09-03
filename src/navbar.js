@@ -16,8 +16,19 @@ const NavBar = () => {
             <Link to="/transaction">Transaction History</Link>
           </li>
           <li>
-            <a href="https://www.investopedia.com/terms/c/cryptocurrency.asp" target="_blank">Learn Crypto</a>
+            <Link to="https://www.rba.gov.au/education/resources/explainers/cryptocurrencies.html" target="_blank">Learn Crypto</Link>
           </li>
+          <li>
+            <Link to="*">About Us</Link>
+          </li>
+          <div className='navbar-right'>
+          <li className='signup-container'>
+            <Link to="*">Sign Up</Link>
+          </li>
+          <li className='login-container'>
+            <Link to="*">Log In</Link>
+          </li>
+      </div>
         </ul>
       </div>
     </nav>

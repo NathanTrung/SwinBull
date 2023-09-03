@@ -50,7 +50,7 @@ const Asset = ({
           )}
           <h2 className="asset-name">{isHeader ? "" : name}</h2>
           <p className={`asset-symbol${isHeader ? " asset-header-bold" : ""}`}>
-            {isHeader ? "" : symbol}
+            {isHeader ? "Symbol" : symbol}
           </p>
         </div>
         <div className="asset-data">
@@ -65,9 +65,8 @@ const Asset = ({
             )}
           </p>
           <p
-            className={`asset-percent${
-              isHeader ? " asset-header-bold" : priceChange < 0 ? " red" : " green"
-            }`}
+            className={`asset-percent${isHeader ? " asset-header-bold" : priceChange < 0 ? " red" : " green"
+              }`}
           >
             {isHeader ? (
               <button onClick={() => handleSort("priceChange")} className="sort-button">
@@ -89,9 +88,8 @@ const Asset = ({
             )}
           </p>
           <p
-            className={`asset-marketcap${
-              isHeader ? " asset-header-bold" : ""
-            }`}
+            className={`asset-marketcap${isHeader ? " asset-header-bold" : ""
+              }`}
           >
             {isHeader ? (
               <button onClick={() => handleSort("market_cap")} className="sort-button">
@@ -113,15 +111,31 @@ const Asset = ({
   );
 };
 
-const BuyModal = ({ isOpen, onClose, coinName, coinSymbol }) => {
+const BuyModal = ({ isOpen, onClose, coinName, coinSymbol, assetPrice }) => {
   const [step, setStep] = useState(1);
+  const [amount, setAmount] = useState("");
+  const [totalAmount, setTotalAmount] = useState(0);
 
   const handleNextStep = (e) => {
     e.preventDefault();
+    if (step === 1) {
+      // Check if the entered amount is a valid number
+      const enteredAmount = parseFloat(amount);
+      if (isNaN(enteredAmount)) {
+        alert("Please enter a valid amount.");
+        return;
+      }
+  
+      // Calculate the total amount by multiplying the user-entered amount with the asset's current price
+      const totalPrice = enteredAmount * assetPrice;
+      setTotalAmount(totalPrice.toFixed(2)); // Round to 2 decimal places
+    }
+  
     if (step < 3) {
       setStep(step + 1);
     }
   };
+  
 
   const handlePrevStep = () => {
     if (step > 1) {
@@ -139,12 +153,13 @@ const BuyModal = ({ isOpen, onClose, coinName, coinSymbol }) => {
               <div className="col">
                 <div className="inputBox">
                   <span>Amount:</span>
-                  
                   <input
-                    type="text"
+                    type="number"
                     placeholder="Enter Amount"
                     name="amount"
                     required
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
                   />
                   <span>.{coinSymbol}</span>
                 </div>
@@ -158,7 +173,9 @@ const BuyModal = ({ isOpen, onClose, coinName, coinSymbol }) => {
                   />
                 </div>
               </div>
-              <button type="submit" className="red-next-btn">Next</button>
+              <button type="submit" className="red-next-btn">
+                Next
+              </button>
             </form>
           </div>
         );
@@ -223,7 +240,9 @@ const BuyModal = ({ isOpen, onClose, coinName, coinSymbol }) => {
                   <div className="inputBox">
                     <span>Total:</span>
                     <hr />
+                    <p>${totalAmount}</p> {/* Make sure totalAmount is a valid number */}
                   </div>
+
                 </div>
               </div>
               <button type="submit" className="red-next-btn">Next</button>
@@ -342,7 +361,8 @@ function App() {
         const priceA = a.current_price;
         const priceB = b.current_price;
         return newSortOrder === "asc" ? priceA - priceB : priceB - priceA;
-      } else if (column === "priceChange") {
+      }
+      else if (column === "priceChange") {
         const priceChangeA = a.price_change_percentage_24h;
         const priceChangeB = b.price_change_percentage_24h;
         return newSortOrder === "asc"
@@ -363,6 +383,7 @@ function App() {
       }
       return 0;
     });
+
     setAssets(sortedAssets);
   };
 
@@ -370,7 +391,7 @@ function App() {
     asset.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  const handleBuyClick = (coinName, coinSymbol) => {
+  const handleBuyClick = (coinName, coinSymbol, assetPrice) => {
     setIsModalOpen(true);
     setSelectedCoin(coinName);
     setSelectedSymbol(coinSymbol);
@@ -433,7 +454,7 @@ function App() {
             sortBy={sortBy}
             canBuy={true}
             onBuyClick={(coinName, coinSymbol) =>
-              handleBuyClick(coinName, coinSymbol)
+              handleBuyClick(coinName, coinSymbol, asset.current_price)
             }
           />
         );
