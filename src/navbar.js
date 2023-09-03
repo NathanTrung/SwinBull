@@ -16,10 +16,7 @@ const NavBar = () => {
             <Link to="/transaction">Transaction History</Link>
           </li>
           <li>
-            <Link to="*">Learn Crypto</Link>
-          </li>
-          <li>
-            <Link to="*">About Us</Link>
+            <a href="https://www.investopedia.com/terms/c/cryptocurrency.asp" target="_blank">Learn Crypto</a>
           </li>
         </ul>
       </div>
