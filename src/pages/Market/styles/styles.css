@@ -207,10 +207,11 @@ h2 {
 }
 
 .modal h2 {
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.modal button {
+.modal .close-button {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -224,11 +225,9 @@ h2 {
   height: 25px; /* Set the height of the button */
 }
 
-
-
-.checkOutForm{
-  padding:20px;
-  width:700px;
+.checkOutForm {
+  padding: 20px;
+  width: 100%; /* Adjust the width as needed */
 }
 
 .row .col .inputBox {
@@ -303,6 +302,91 @@ h2 {
 
 .submit-btn:hover {
   background: #f00606 ;
-  font-weight: bold; /* Add font-weight to make the text bold on hover */
 
+}
+
+/* Button Styles */
+.red-next-btn {
+  background-color: #ff0000; /* Red background color */
+  color: #ffffff; /* White text color */
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px; /* Add margin if needed */
+  cursor: pointer;
+}
+
+.red-back-btn {
+  background-color: #ff0000; /* Red background color */
+  color: #ffffff; /* White text color */
+  border: none;
+  padding: 10px 20px;
+  margin-right: 10px; /* Add margin if needed */
+  cursor: pointer;
+}
+
+/* Add any other button styling here */
+
+/* Button Container */
+.button-container {
+  display: flex; /* Make the container a flex container */
+  flex-direction: row; /* Arrange children in a row (horizontal) */
+  justify-content: space-between; /* Add space between buttons */
+  align-items: center; /* Center items vertically */
+  margin-top: 10px; /* Add margin to separate buttons from input boxes */
+}
+
+/* Style the form container */
+.checkOutForm {
+  padding: 20px;
+  width: 100%; /* Take up the full width of the container */
+  max-width: 600px; /* Limit the maximum width */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Style the form header */
+.checkOutForm h2 {
+  font-size: 24px; /* Increase the font size for the header */
+  margin-bottom: 20px; /* Add space below the header */
+  font-weight: bold; /* Make the header text bold */
+}
+
+/* Style the form columns (two columns) */
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add spacing between input boxes */
+}
+
+/* Style the input boxes and labels */
+.inputBox {
+  margin-bottom: 10px;
+}
+
+.inputBox span {
+  display: block;
+  font-weight: bold;
+  padding-bottom: 10px;
+  text-align: left; /* Add this line to align text to the left */
+}
+
+.inputBox input {
+  width: 100%; /* Take up the full width of the container */
+  padding: 10px; /* Add padding inside input boxes */
+  border: 1px solid #ccc; /* Add a border to input boxes */
+  border-radius: 5px; /* Add rounded corners to input boxes */
+  outline: none; /* Remove the default input focus outline */
+}
+
+/* Style the "Next" button */
+.red-next-btn {
+  background-color: #ff0000; /* Red background color */
+  color: #ffffff; /* White text color */
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px; /* Add space above the button */
+  cursor: pointer;
+}
+
+.red-next-btn:hover {
+  background-color: #cc0000; /* Darker red on hover */
 }

@@ -1,0 +1,40 @@
+{
+  "cryptoCurrencies": [
+    {
+      "id": "bitcoin",
+      "name": "Bitcoin",
+      "symbol": "BTC",
+      "current_price": 45000.55,
+      "price_change_percentage_24h": 2.5,
+      "total_volume": 58432000000,
+      "market_cap": 845692000000
+    },
+    {
+      "id": "ethereum",
+      "name": "Ethereum",
+      "symbol": "ETH",
+      "current_price": 3200.75,
+      "price_change_percentage_24h": -1.2,
+      "total_volume": 28056000000,
+      "market_cap": 375821000000
+    },
+    {
+      "id": "ripple",
+      "name": "Ripple",
+      "symbol": "XRP",
+      "current_price": 1.05,
+      "price_change_percentage_24h": 0.8,
+      "total_volume": 5432100000,
+      "market_cap": 47789200000
+    },
+    {
+      "id": "litecoin",
+      "name": "Litecoin",
+      "symbol": "LTC",
+      "current_price": 150.25,
+      "price_change_percentage_24h": 3.1,
+      "total_volume": 2156700000,
+      "market_cap": 9967520000
+    }
+  ]
+}

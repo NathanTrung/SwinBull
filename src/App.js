@@ -7,7 +7,7 @@ import Market from './pages/Market/Market'; // Create a Market component
 import Transaction from './pages/Transaction/Transaction'; // Create a Transaction component
 import Learn from './pages/Learn/Learn'; // Create a Market component
 import About from './pages/About/About'; // Create a Market component
-
+import Welcome from './Welcome';
 function App() {
   return (
     <Router>
@@ -18,8 +18,10 @@ function App() {
           <Route path="/transaction" element={<Transaction />} /> {/* Use element prop */}
           <Route path="/learn" element={<Learn />} /> {/* Use element prop */}
           <Route path="/about" element={<About />} /> {/* Use element prop */}
+          <Route path="/" element={<Welcome/>} /> {}
           {/* Add more routes for other pages */}
         </Routes>
+        
         <Footer /> {/* Add the Footer component here */}
       </div>
     </Router>
