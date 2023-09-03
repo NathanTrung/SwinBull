@@ -16,10 +16,10 @@ const NavBar = () => {
             <Link to="/transaction">Transaction History</Link>
           </li>
           <li>
-            <Link to="/learn">Learn Crypto</Link>
+            <Link to="*">Learn Crypto</Link>
           </li>
           <li>
-            <Link to="/about">About Us</Link>
+            <Link to="*">About Us</Link>
           </li>
         </ul>
       </div>
