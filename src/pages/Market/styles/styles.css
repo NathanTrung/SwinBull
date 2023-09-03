@@ -162,7 +162,7 @@ h2 {
 
 .asset-buy-header {
   /* Add a fixed height to the button container */
-  margin-top: 4px;
+  margin-top: 2px;
   height: 20px; /* Adjust the height as needed */
   display: flex;
   align-items: center; /* Vertically center the button */
@@ -177,7 +177,7 @@ h2 {
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
 }
 
 .buy-button:hover {

@@ -50,7 +50,7 @@ const Asset = ({
           )}
           <h2 className="asset-name">{isHeader ? "" : name}</h2>
           <p className={`asset-symbol${isHeader ? " asset-header-bold" : ""}`}>
-            {isHeader ? "Symbol" : symbol}
+            {isHeader ? "" : symbol}
           </p>
         </div>
         <div className="asset-data">
@@ -342,11 +342,27 @@ function App() {
         const priceA = a.current_price;
         const priceB = b.current_price;
         return newSortOrder === "asc" ? priceA - priceB : priceB - priceA;
+      } else if (column === "priceChange") {
+        const priceChangeA = a.price_change_percentage_24h;
+        const priceChangeB = b.price_change_percentage_24h;
+        return newSortOrder === "asc"
+          ? priceChangeA - priceChangeB
+          : priceChangeB - priceChangeA;
+      } else if (column === "total_volume") {
+        const volumeA = a.total_volume;
+        const volumeB = b.total_volume;
+        return newSortOrder === "asc" ? volumeA - volumeB : volumeB - volumeA;
+      } else if (column === "market_cap") {
+        const marketCapA = a.market_cap;
+        const marketCapB = b.market_cap;
+        return newSortOrder === "asc" ? marketCapA - marketCapB : marketCapB - marketCapA;
+      } else if (column === "name") {
+        const nameA = a.name.toLowerCase();
+        const nameB = b.name.toLowerCase();
+        return newSortOrder === "asc" ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
       }
-      // ... rest of the sorting logic
       return 0;
     });
-
     setAssets(sortedAssets);
   };
 
