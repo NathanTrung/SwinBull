@@ -1,0 +1,232 @@
+@charset "utf-8";
+
+
+wrapper bgded overlay { 
+    background-color: #f5f5f5;
+    color: #292B2C;
+}
+
+/* Page Intro
+--------------------------------------------------------------------------------------------------------------- */
+#pageintro{padding:120px 0;}
+
+#pageintro li article > div *{margin:0;}
+#pageintro li article > div:first-child *{margin:20px 0 0 0;}
+
+#pageintro li .roman-numeral{display:none; font-size:3rem; font-style:normal; line-height:1;}
+#pageintro li p:nth-of-type(2){margin-top:30px; line-height:2rem;}
+#pageintro li p:last-of-type{margin-top:40px;}
+
+
+/* Content Area
+--------------------------------------------------------------------------------------------------------------- */
+.container{padding:80px 0;}
+
+/* Content */
+.services li:last-child{margin-bottom:0;}/* Used for mobile devices when elements stack */
+.services article{display:block; position:relative; min-height:80px; padding:0 0 0 40px;}
+.services article *{margin:0;}
+.services article i{display:block; position:absolute; top:0; left:0; font-size:24px;}
+.services article .heading{margin-bottom:10px; font-size:1.2rem; text-transform:uppercase; font-family: 'Roboto', sans-serif; }
+.services article p{margin-bottom:10px;}
+.elements li:last-child{margin-bottom:0;}/* Used for mobile devices when elements stack */
+.elements figure{display:block; position:relative; width:100%; max-width:320px; height:100%; margin:0 auto;}
+.elements figure figcaption{display:block; width:100%; text-align:center;}
+.elements figure:hover figcaption{opacity:1;}
+.elements figure figcaption a{display:block; padding:10px; font-weight:700; text-transform:uppercase;}
+
+/* Coloured Boxes
+--------------------------------------------------------------------------------------------------------------- */
+.clrbox{display:table;}
+
+.clrbox *{margin:0;}
+.clrbox li{display:table-cell; width:33.33333333333333%;}
+.clrbox article{padding:15%;}
+.clrbox .heading, .clrbox p:first-of-type{margin-bottom:30px;}
+
+
+/* Transition Fade
+--------------------------------------------------------------------------------------------------------------- */
+*, *::before, *::after{transition:all .3s ease-in-out;}
+#mainav form *{transition:none !important;}
+
+
+/* Colours
+--------------------------------------------------------------------------------------------------------------- */
+body{color:black; background-color:#f5f5f5;}
+a{color:#E9365A;}
+a:active, a:focus{background:transparent;}/* IE10 + 11 Bugfix - prevents grey background */
+hr, .borderedbox{border-color:#D7D7D7;}
+label span{color:#FF0000; background-color:inherit;}
+input:focus, textarea:focus, *:required:focus{border-color:#E9365A;}
+.overlay{color:black; background-color:inherit;}
+.overlay::after{color:inherit; background-color:rgba(0,0,0,.30);}
+.overlay.coloured::after{color:#292B2C; background-color:rgba(233,54,90,.5);/* #E9365A */}
+
+.btn, .btn.inverse:hover{color:#FFFFFF; background-color:#E9365A; border-color:#E9365A;}
+.btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
+
+/* Content Area */
+.elements figure figcaption{color:#888888; background:#FFFFFF;}
+.elements figure figcaption a{color:inherit; background:inherit;}
+.elements figure:hover figcaption a{color:#FFFFFF; background:#E9365A;}
+
+/* Coloured Boxes */
+.clrbox{color:#FFFFFF;}
+.clrbox li:nth-of-type(1){background-color:rgba(24,24,24,.8); /* #181818 */}
+.clrbox li:nth-of-type(2){background-color:rgba(24,24,24,.6); /* #181818 */}
+.clrbox li:nth-of-type(3){background-color:rgba(24,24,24,.4); /* #181818 */}
+
+/* Max Wrapper Width - Laptop, Desktop etc.
+--------------------------------------------------------------------------------------------------------------- */
+@media screen and (min-width:978px){
+	.hoc{max-width:978px;}
+}
+
+/* Mobile Devices
+--------------------------------------------------------------------------------------------------------------- */
+@media screen and (max-width:900px){
+	.hoc{max-width:90%;}
+}
+
+@media screen and (max-width:750px){
+	.imgl, .imgr{display:inline-block; float:none; margin:0 0 10px 0;}
+	.fl_left, .fl_right{display:block; float:none;}
+	.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{display:block; float:none; width:auto; margin:0 0 30px 0; padding:0;}
+	.clrbox, .clrbox li{display:block; width:100%;}
+}
+
+/* Other
+--------------------------------------------------------------------------------------------------------------- */
+@media screen and (max-width:650px){
+	.scrollable{display:block; width:100%; margin:0 0 30px 0; padding:0 0 15px 0; overflow:auto; overflow-x:scroll;}
+	.scrollable table{margin:0; padding:0; white-space:nowrap;}
+	.inline li{display:block; margin-bottom:10px;}
+	.pushright li{margin-right:0;}
+	.font-x2{font-size:1.4rem;}
+	.font-x3{font-size:1.6rem;}
+}
+html{overflow-y:scroll; overflow-x:hidden;}
+html, body{margin:0; padding:0; font-size:14px; line-height:1.6em;}
+
+*, *::before, *::after{box-sizing:border-box;}
+
+.bold{font-weight:bold;}
+.center{text-align:center;}
+.right{text-align:right;}
+.uppercase{text-transform:uppercase; font-family: 'Roboto', sans-serif}
+.capitalise{text-transform:capitalize;}
+.hidden{display:none;}
+.nospace{margin:0; padding:0; list-style:none;}
+.block{display:block;}
+.inline *{display:inline-block;}
+.inline *:last-child{margin-right:0;}
+.pushright li{margin-right:20px;}
+.pushright li:last-child{margin-right:0;}
+.borderedbox{border:1px solid;}
+.overlay{position:relative; z-index:1;}
+.overlay::after{display:block; position:absolute; top:0; left:0; width:100%; height:100%; content:""; z-index:-1; background-color: #f5f5f5;}
+.bgded{background-position:top center; background-repeat:no-repeat; background-size:cover;}
+.circle{border-radius:50%; background-clip:padding-box;}
+
+.btn{display:inline-block; padding:15px 25px 17px; text-transform:uppercase; border:1px solid;}
+.btn.medium{padding:10px 20px 12px;}
+.btn.small{padding:8px 18px 10px; text-transform:none;}
+
+.clear, .group{display:block;}
+.clear::before, .clear::after, .group::before, .group::after{display:table; content:"";}
+.clear, .clear::after, .group, .group::after{clear:both;}
+
+a{outline:none; text-decoration:none;}
+
+.fl_left, .imgl{float:left;}
+.fl_right, .imgr{float:right;}
+
+img{width:auto; max-width:100%; height:auto; margin:0; padding:0; border:none; line-height:normal; vertical-align:middle;}
+.imgl{margin:0 15px 10px 0; clear:left;}
+.imgr{margin:0 0 10px 15px; clear:right;}
+
+
+PartnerButton { 
+    width: auto;
+    height: auto;
+}
+
+PartnerButtons { 
+    height: 100px;
+    width: 100px;
+}
+
+
+
+/* Fonts
+--------------------------------------------------------------------------------------------------------------- */
+body, input, textarea, select{font-family: 'Roboto', sans-serif;}
+h1, h2, h3, h4, h5, h6, .heading{font-family:'Roboto', sans-serif;}
+
+
+/* Forms
+--------------------------------------------------------------------------------------------------------------- */
+form, fieldset, legend{margin:0; padding:0; border:none;}
+legend{display:none;}
+label, input, textarea, select, button{display:block; resize:none; outline:none; color:inherit; font-size:inherit; font-family:inherit; vertical-align:middle;}
+label{margin-bottom:5px;}
+:required, :invalid{outline:none; box-shadow:none;}
+
+
+/* Generalise
+--------------------------------------------------------------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6, .heading{margin:0 0 20px 0; font-size:22px; line-height:normal; font-weight:normal;}
+
+address{font-style:normal; font-weight:normal;}
+hr{display:block; width:100%; height:1px; border:solid; border-width:1px 0 0 0;}
+
+.font-xs{font-size:.8rem;}
+.font-x1{font-size:1.2rem;}
+.font-x2{font-size:1.8rem;}
+.font-x3{font-size:2.8rem;}
+
+.wrapper{display:block; width:100%; margin:0; padding:30px; text-align:left; word-wrap:break-word; background-color: #f5f5f5;}
+/*
+The "hoc" class is a generic class used to centre a containing element horizontally
+It should be used in conjunction with a second class or ID
+*/
+.hoc{display:block; margin:0 auto;}
+
+
+/* HTML 5 Overrides
+--------------------------------------------------------------------------------------------------------------- */
+address, article, aside, figcaption, figure, footer, header, main, nav, section{display:block; margin:0; padding:0;}
+
+
+/* Grid
+--------------------------------------------------------------------------------------------------------------- */
+.one_half, .one_third, .two_third, .one_quarter, .two_quarter, .three_quarter{display:inline-block; float:left; margin:0 0 0 3.06748466257669%; list-style:none;}
+
+.first{margin-left:0; clear:left;}
+
+.one_quarter{width:22.69938650306748%;}
+.one_third{width:31.28834355828221%;}
+.one_half, .two_quarter{width:48.46625766871166%;}
+.two_third{width:65.6441717791411%;}
+.three_quarter{width:74.23312883435584%;}
+
+
+/* Spacing
+--------------------------------------------------------------------------------------------------------------- */
+.btmspace-10{margin-bottom:10px;}
+.btmspace-15{margin-bottom:15px;}
+.btmspace-30{margin-bottom:30px;}
+.btmspace-50{margin-bottom:50px;}
+.btmspace-80{margin-bottom:80px;}
+
+.inspace-5{padding:5px;}
+.inspace-10{padding:10px;}
+.inspace-15{padding:15px;}
+.inspace-30{padding:30px;}
+.inspace-50{padding:50px;}
+.inspace-80{padding:80px;}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap%22");
+* { 
+    font-family: 'Roboto', sans-serif;
+}

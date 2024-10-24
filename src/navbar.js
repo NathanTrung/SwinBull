@@ -7,7 +7,9 @@ const NavBar = () => {
   return (
     <nav>
       <div className="navbar-left">
+        <a href="/">
         <img src={logo} alt="Logo" />
+        </a>
         <ul>
           <li>
             <Link to="/market">Market</Link>
@@ -19,7 +21,7 @@ const NavBar = () => {
             <Link to="https://www.rba.gov.au/education/resources/explainers/cryptocurrencies.html" target="_blank">Learn Crypto</Link>
           </li>
           <li>
-            <Link to="*">About Us</Link>
+            <Link to="/abouttest">About Us</Link>
           </li>
           <div className='navbar-right'>
           <li className='signup-container'>
